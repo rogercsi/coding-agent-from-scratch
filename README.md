@@ -29,7 +29,6 @@ OpenTelemetry observability.
 ```bash
 # 1. Clone and enter the repo
 git clone <your-repo-url>
-cd assignment1-basics
 
 # 2. Create a virtual environment and install dependencies
 uv venv .venv

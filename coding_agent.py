@@ -1045,6 +1045,10 @@ async def _run_live_async(cmd: list[str], cwd: str, timeout: int = 30) -> str:
         output = "".join(lines)
         if proc.returncode and proc.returncode != 0:
             output += f"\n[exit code {proc.returncode}]"
+        # Truncate huge outputs so they don't blow the LLM context window
+        _MAX_OUT = 40_000
+        if len(output) > _MAX_OUT:
+            output = output[:_MAX_OUT] + f"\n… (output truncated, {len(output) - _MAX_OUT} chars omitted)"
         return output.strip() or "(no output)"
 
     except asyncio.CancelledError:
