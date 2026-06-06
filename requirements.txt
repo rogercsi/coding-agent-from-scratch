@@ -1,0 +1,21 @@
+# ── Core ──────────────────────────────────────────────────────────────────────
+python-dotenv>=1.0        # auto-loads .env file at startup
+langchain>=1.3
+langchain-core>=1.4
+langchain-anthropic>=1.4
+langgraph>=1.2
+pydantic>=2.0
+typing-extensions>=4.0
+
+# ── Long-term memory (mem0 + ChromaDB vector store) ───────────────────────────
+mem0ai==2.0.4
+mem0ai[vector-stores]   # pulls in chromadb
+
+# ── RAG / vector search ────────────────────────────────────────────────────────
+chromadb>=1.0
+sentence-transformers>=3.0   # all-MiniLM-L6-v2 embeddings
+
+# ── Optional: OpenTelemetry tracing ───────────────────────────────────────────
+# Install to get full span export (JSONL always written regardless).
+# opentelemetry-sdk>=1.20
+# opentelemetry-exporter-otlp>=1.20
